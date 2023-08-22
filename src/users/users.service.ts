@@ -9,6 +9,7 @@ export class UsersService {
   async getAllUsers(): Promise<Users[]> {
     return this.prisma.users.findMany();
   }
+
   async createUser(data: Users): Promise<Users> {
     const existing = await this.prisma.users.findUnique({
       where: {
@@ -16,7 +17,7 @@ export class UsersService {
       },
     });
     if (existing) {
-      throw new ConflictException('user already exists');
+      throw new ConflictException('username already exists');
     }
 
     return this.prisma.users.create({ data });

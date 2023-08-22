@@ -39,8 +39,8 @@ export class AuthService {
     createUsers.email = createDto.email;
     createUsers.password = await bcrypt.hash(createDto.password, 10);
 
-    const user = await this.usersService.createUser(createUsers);
+    const userss = await this.usersService.createUser(createUsers);
 
-    return { token: this.jwtService.sign({ username: user.username }) };
+    return { token: this.jwtService.sign({ username: userss.username }) };
   }
 }

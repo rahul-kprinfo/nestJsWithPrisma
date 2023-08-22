@@ -29,7 +29,7 @@ export class UserController {
       status: 'ok!',
       message: 'getting data successfully',
       result: result,
-    }); 
+    });
   }
   @Post()
   async postUser(@Body() userData: User): Promise<User> {
